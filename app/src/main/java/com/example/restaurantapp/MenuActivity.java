@@ -1,12 +1,20 @@
 package com.example.restaurantapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MenuActivity extends AppCompatActivity {
@@ -21,12 +29,22 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        logout_btn = findViewById(R.id.logout_button);
+        //logout_btn = findViewById(R.id.logout_button);
         mAuth = FirebaseAuth.getInstance();
 
-        logout_btn.setOnClickListener(view -> {
+        /*logout_btn.setOnClickListener(view -> {
             logoutUser();
-        });
+        });*/
+
+        /*BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        NavController navController = Navigation.findNavController(this, R.id.fragment);
+
+        bottomNavigationView.*/
+
+        NavController navController = Navigation.findNavController(this, R.id.fragment);
+        //AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
     }
 
     @Override

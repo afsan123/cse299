@@ -23,21 +23,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        homeButton = findViewById(R.id.homebtn);
-        mAuth = FirebaseAuth.getInstance();
 
-        homeButton.setOnClickListener(view -> {
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-        });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        getWindow().setStatusBarColor(Color.parseColor("#FFF63321"));
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser == null) {
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-        }
+
     }
 }

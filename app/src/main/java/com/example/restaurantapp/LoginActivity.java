@@ -70,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(new Intent(LoginActivity.this, MenuActivity.class));
                     } else {
                         Toast.makeText(LoginActivity.this, "Error Occured", Toast.LENGTH_SHORT).show();
+                        //startActivity(new Intent(LoginActivity.this, MenuActivity.class));
                     }
                 }
             });
